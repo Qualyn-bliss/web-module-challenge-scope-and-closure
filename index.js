@@ -149,9 +149,26 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScorecb, inningcb, number){
+  const homeScores = [];
+  const awayScores = [];
+  const sum = function (num1, num2) {
+    return num1 + num2
+  } 
+  for(let i =0; i<number; i++){
+    homeScores.push(getInningScorecb(inningcb).Home);
+    awayScores.push(getInningScorecb(inningcb).Away);
+  }
+  const inningStrings = [];
+  for(let i =0; i<number; i++){
+    inningStrings.push();
+  }
+  if(homeScores.reduce(sum) === awayScores.reduce(sum)){
+    inningStrings.push();
+  }
+  return inningStrings;
 }
+console.log(scoreboard(getInningScore, inning, 9));
 
 
 
